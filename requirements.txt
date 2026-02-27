@@ -11,7 +11,7 @@ xgboost
 catboost
 pymongo
 from_root
-evidently==0.2.8
+evidently
 dill
 PyYAML
 neuro_mf
@@ -21,6 +21,7 @@ botocore
 fastapi
 uvicorn
 jinja2
+python-dotenv
 python-multipart
 diagrams
 graphviz
