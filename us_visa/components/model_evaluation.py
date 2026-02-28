@@ -7,7 +7,7 @@ from us_visa.logger import logging
 import sys
 import pandas as pd
 from typing import Optional
-# from us_visa.entity.s3_estimator import USvisaEstimator
+from us_visa.entity.s3_estimator import USvisaEstimator
 from dataclasses import dataclass
 from us_visa.entity.estimator import USvisaModel
 from us_visa.entity.estimator import TargetValueMapping
@@ -63,8 +63,8 @@ class ModelEvaluation:
         try:
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
             test_df['company_age'] = CURRENT_YEAR-test_df['yr_of_estab']
-
-            x, y = test_df.drop(TARGET_COLUMN), test_df[TARGET_COLUMN]
+            print(test_df.columns)
+            x, y = test_df.drop(columns={TARGET_COLUMN}), test_df[TARGET_COLUMN]
             y = y.replace(
                 TargetValueMapping()._asdict()
             )
